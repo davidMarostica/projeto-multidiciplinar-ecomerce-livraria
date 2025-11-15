@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#2c3e50">
+    <title>Sistema Bookstore</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Sistema Bookstore</h1>
+            <nav>
+                <button onclick="showSection('livros')">Livros</button>
+                <button onclick="showSection('vendas')">Vendas</button>
+                <button onclick="showSection('clientes')">Clientes</button>
+                <button onclick="showSection('relatorios')">Relatorios</button>
+            </nav>
+        </header>
+
+        <main>
+            <!-- Seção Livros -->
+            <section id="livros-section" class="section active">
+                <h2>Gerenciar Livros</h2>
+                <div class="controls">
+                    <button onclick="carregarLivros()">Carregar Livros</button>
+                    <input type="text" id="buscarLivro" placeholder="Buscar livro..." onkeyup="filtrarLivros()">
+                </div>
+                <div id="lista-livros" class="grid-container"></div>
+            </section>
+
+            <!-- Seção Vendas -->
+            <section id="vendas-section" class="section">
+                <h2>Realizar Venda</h2>
+                <div class="venda-container">
+                    <div class="form-group">
+                        <label>Cliente:</label>
+                        <select id="select-cliente"></select>
+                    </div>
+                    <div class="form-group">
+                        <label>Livro:</label>
+                        <select id="select-livro"></select>
+                    </div>
+                    <div class="form-group">
+                        <label>Quantidade:</label>
+                        <input type="number" id="quantidade-venda" value="1" min="1">
+                    </div>
+                    <button onclick="iniciarVenda()">Iniciar Venda</button>
+                    <div id="venda-atual"></div>
+                </div>
+            </section>
+
+            <!-- Seção Clientes -->
+            <section id="clientes-section" class="section">
+                <h2>Clientes Cadastrados</h2>
+                <button onclick="carregarClientes()">Carregar Clientes</button>
+                <div id="lista-clientes" class="grid-container"></div>
+            </section>
+
+            <!-- Seção Relatórios -->
+            <section id="relatorios-section" class="section">
+                <h2>Relatorios do Sistema</h2>
+                <button onclick="carregarRelatorios()">Gerar Relatorio Completo</button>
+                <div id="relatorio-conteudo"></div>
+            </section>
+        </main>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
